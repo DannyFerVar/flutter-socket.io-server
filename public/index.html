@@ -10,7 +10,8 @@
 
 <body>
 
-    <h1>Vanessa =) Ü</h1>
+    <h1>Acceso Denegado
+    </h1>
 
     <script src="socket.io/socket.io.js"></script>
 
@@ -25,9 +26,14 @@
             console.log('Connection lost');
         });
 
+        socket.on('active-bands', function (bands) {
+            console.clear();
+            console.table(bands);
+        });
+
         socket.emit('mensaje', { nombre: 'DannyFervar' });
 
-        socket.on('Mensaje', function (payload) {
+        socket.on('nuevo-mensaje', function (payload) {
             console.log('Escuchando:', payload);
         });
 
